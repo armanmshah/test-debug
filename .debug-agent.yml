@@ -1,0 +1,4 @@
+# --frozen: never rewrite uv.lock (a forbidden path) while running tests.
+test_command: uv run --frozen --quiet python -m pytest -q -p no:cacheprovider
+lint_command: uv run --frozen --quiet ruff check .
+max_attempts: 3
