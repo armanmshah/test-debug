@@ -22,7 +22,11 @@ class Cart:
         """Remove `quantity` units of a product; the line goes away when none are left."""
         if sku not in self.items:
             raise KeyError(f"{sku} is not in the cart")
-        del self.items[sku]
+        remaining = self.items[sku] - quantity
+        if remaining > 0:
+            self.items[sku] = remaining
+        else:
+            del self.items[sku]
 
     def item_count(self) -> int:
         return sum(self.items.values())
