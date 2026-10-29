@@ -26,7 +26,7 @@ class Quote:
 
 def coupon_percent(code: str) -> int:
     """The discount for a coupon code. Codes are not case-sensitive."""
-    percent = COUPONS.get(code.strip())
+    percent = COUPONS.get(code.strip().upper())
     if percent is None:
         raise InvalidCouponError(f"unknown coupon: {code}")
     return percent
