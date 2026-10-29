@@ -35,7 +35,7 @@ def coupon_percent(code: str) -> int:
 def discount_percent(item_count: int, coupon: str | None = None) -> int:
     """Total discount: 5% for orders of 10 or more items, plus any coupon."""
     percent = 0
-    if item_count > BULK_THRESHOLD:
+    if item_count >= BULK_THRESHOLD:
         percent += BULK_PERCENT
     if coupon:
         percent += coupon_percent(coupon)
